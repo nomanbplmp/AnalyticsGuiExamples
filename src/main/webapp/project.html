@@ -1,0 +1,30 @@
+<html>
+  <head>
+
+    <script src="js/spin.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="assets/moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        InitChart();
+      }); 
+
+
+    	
+    	  function InitChart(){
+    	          var vis = d3.select("#svgVisualize");
+    	          var xRange = d3.scale.linear().range([40, 400]).domain([0,100]);
+    	          var yRange = d3.scale.linear().range([400, 40]).domain([0,100]);
+    	          var xAxis = d3.svg.axis().scale(xRange).tickSize(1);
+    	          var yAxis = d3.svg.axis().scale(yRange).orient("left").tickSize(1);
+    	          vis.append("svg:g").call(xAxis).attr("transform", "translate(0,400)");
+    	          vis.append("svg:g").call(yAxis).attr("transform", "translate(40,0)");
+    	      }
+          </script>
+  </head>
+  <body>
+    <svg id="svgVisualize" width="500" height="500"></svg>
+  </body>
+</html>
